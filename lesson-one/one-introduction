@@ -1,0 +1,105 @@
+TTL = 256 (decrement the IP packets)
+multiples networks for different needs.
+
+ISO = for strandardization
+CISCO = leader in network
+
+reseaux = chaines d'equipements interconnectes les uns aux autres.
+small/home office/ SOHO => small network (for a home) to xDSL to Network
+
+main office centralizes all data of branch offices
+
+Proxy
+1)
+- voit passer une demande
+- la stocke dans un cache/serveur local pour permettre 
+à d'autres users de l'utiliser
+
+2)
+- filtrage des URLS
+
+Serveur
+1)
+Machine avec une volumétrie élevée
+
+Application serveurs:
+- paquets ips distribué sur une addresse ip.
+- une fois les paquets arrivés, les ports sont utilisés pour trouver le bon
+service.
+
+Virtualization qui permet de répondre au pb des serveurs utilisés 10% du temps.
+
+Application clientes se connectent à un serveur.
+
+firewall = 
+- permet de protéger contre l'extérieur, les serveurs webs
+appli web/serveur exposé dans la DMZ, firewall protège aussi la DMZ.
+- bloque tout ce qui vient de l'extérieur. (untrust)
+- Tout ce qui vient de l'intérieur (trust)
+Toujours 2 firewalls = dans la machine et dans le réseau.
+
+Box:
+- FW
+- Modem
+- Switch
+- Routeurs
+- Borne Wifi
+
+router with switches.
+
+modulateur = module le signal numérique à un signal analogique.
+demodulateur = l'inverse
+
+Characteristics of a Network:
+- scalability = network design to manage all fluctuations of the network
+- reliability = double everything => Two is one, one is nothing
+
+full duplex: tout le monde parle en même temps
+half duplex: chacun prend la parole.
+
+cluster: serveur qui fonctionnent en même temps.
+
+supervision: volumétrie du réseau
+- si plus de 900 paquets IP => on arrête
+
+Switch: ce qui permet de communiquer entre machine du même réseau ip.
+Routeur: 
+- ETH -> HDLC (high datalink control) /PPP
+
+On s'engage sur la reliability d'un réseau.
+
+
+TOPOLOGIES
+- Partial mesh (pas tous reliés) topology (only routers)
+- Jamais vraiment uniques
+
+Logical topology: path along which data travel from one point to another in net
+
+Le switch ne peut pas enviyer des data dans une addresse ip externe a son subnet
+
+routeur connecter en lien serial/ETH
+
+1 milliard de bits/s = Gi0
+plus petit = Fa
+
+bande passante = ce que tu as au maximum
+débit: qt de bits/s
+
+sdn (software define network) = envoie de cmd a partir d'un serveur central.
+
+CE QUI PASSE DANS LE RESEAU
+- transporte ce qui est généré par les batch app (FTP = envoie de fichiers
+  découpés en morceau (username, securité, ...), TFTP = pas de sécu, les 2
+  partis doivent etre confiants ex = serveurs)
+
+Batch = programmés par l'user, lancés à un moment précis.
+important = la bande passante
+
+applications interractives ex: site qui vend des chocolats= Temps de réponse
+
+application temps réelles ex: jeu video
+
+chaque requête a une "couleur" qui va plus ou moins mettre une priorité sur un
+critère précis au niveau des routeurs et des switchs
+
+
