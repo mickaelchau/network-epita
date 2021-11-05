@@ -92,14 +92,79 @@ CE QUI PASSE DANS LE RESEAU
   découpés en morceau (username, securité, ...), TFTP = pas de sécu, les 2
   partis doivent etre confiants ex = serveurs)
 
+TYPES D'APPLICATIONS
 Batch = programmés par l'user, lancés à un moment précis.
 important = la bande passante
 
-applications interractives ex: site qui vend des chocolats= Temps de réponse
+applications interractives ex: site qui vend des chocolats
+important = Temps de réponse
 
 application temps réelles ex: jeu video
+important=latence
 
 chaque requête a une "couleur" qui va plus ou moins mettre une priorité sur un
 critère précis au niveau des routeurs et des switchs
 
+temps aller-retour = latence
 
+HOST TO HOST COMMUNICATIONS
+- comm de 2 != machines avec un protocole => Network
+Protocole propriétaire => Puis création d'un modèle standardisé, structuré, en
+couche.
+- Protocole = ce qui permet à un algorithme dans la machine A à discuter avec
+  l'algorithme de la machine B.
+- vendor => équipementier
+- Equipements: switch, routeurs, cartes, médias
+
+OSI MODEL/Pile TCPIP:
+- Installé dans l'OS
+- Emetteur, ça descend et Receveur, remonte
+- Couche Application => communication entre le réseau et une app
+- Couche Présentation 
+  - si la data brute n'est pas lisible par le destinataire 
+  - Cryptage
+- Couche Session => rentrer en contact avec le destinataire, (ex: reprise après
+  interruption de réseau), tant que la Session n'a pas reçu un signal de fin,
+  elle garde en mémoire un tableau avec des data du réseau.
+- Couche Transport/Segmentation => quel type de protocole tu utilises pour envoyer 
+    - Si tu veux du temps réel, rapide avec perte de data => UDP
+    - Si tu veux un message strict => TCP
+    - Couche qui crée des segments numérotés (qui peujvent emprunter des chemins 
+      != et arriver dans un ordre !=)
+    - Pas de remise de la data au destinataire tant que le message n'est pas
+      reconstitué.
+    - Les 2 couches transports se parlent entre elles.
+        - Couche transport receveuse communique avec la couche transport
+          émétrice si une data n'est pas reçue
+- Couche Network => Addresse ip logique avec des ports (réglé avec le protocole 
+  DHCP => Dynamic Host Configuration Protocol)
+- Data link => carte réseau (Ethernet/carte wifi)
+- Physique => câble => maintenant wifi
+
+Pile TCP/IP est ce qui est vraiment implémenté:
+- Application = info échangé entre les 2 couches Application: Data 
+- Transport = info échangé entre les 2 couches Segment: Segment (num des
+  segments)
+- Internet = Packet (demande l'addresse du destinataire et l'analyse)
+    - Fait la redirection entre routeur ou dans le réseau local
+- Link = Frame/Trames => ce qui circule sur le réseau => informations de niveau
+  2 gérées par la couche liaison
+
+Schéma:
+Application: Data 
+|
+Transport: Segment
+|
+Packet
+|
+Trame
+|| 
+Cable
+
+Encapsulation = Ajout de tag sur la donnée
+
+
+PARCOURS DE LA TRAME SUR LE RÉSEAU
+- Le Switch ne s'intéresse qu'à la trame (l'addresse MAC)
+- Le Routeur ne s'intéresse que à l'addresse ip, il régénère la couche 3
+- Le Firewall s'intéresse à la couche transport, il régénère la couche 4 et 3
