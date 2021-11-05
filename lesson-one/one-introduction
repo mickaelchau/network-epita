@@ -168,3 +168,67 @@ PARCOURS DE LA TRAME SUR LE RÉSEAU
 - Le Switch ne s'intéresse qu'à la trame (l'addresse MAC)
 - Le Routeur ne s'intéresse que à l'addresse ip, il régénère la couche 3
 - Le Firewall s'intéresse à la couche transport, il régénère la couche 4 et 3
+
+PDU (Protocol Data Unit) = Data, Segment, Packet, Trame
+
+ENCAPSULATION
+- Couche Transport => Ajoute l'entête de niveau 4 (HDR 4);
+
+Le Routeur régénère un Header de départ du routeur et d'arrivée de l'addresse
+MAC de la nouvelle destination.
+
+Les addresses MAC changent mais pas les addresses IP.
+FCS = checksum => formule mathématique généré par les datas en haut.
+  - contrôle de la trame, première info 
+  - ajouté pendant la couche 7
+
+- Le blender = encryption des messages
+
+INTRODUCING LAN
+LAN = Network of computers and others components that are located close together
+in a limited area.
+
+Plusieurs types:
+- Routeur avec différents Switch
+
+ESXi = Elastic Sky X i = Instance EC2
+
+Dans un réseau:
+- Host = PC (app client) et serveurs (app serveur)
+- Interconnections = NICs (Network Interface Card) et Network Media
+- Network devices = Switches et routeurs
+
+Principaux protocoles:
+- ETH 
+- IP
+- DHCP (seulement pour les pcs jamais les serveurs, switches, routers qui ont 
+  des IP addresses fixes car nom => résolution dns)
+- ARP (Address Reslution Protocol addresse IP => addresse MAC) garde la 
+  correspondance en cache
+  - Machine parle en addresse MAC
+
+Explication:
+- Demande du MAC au serveur DNS
+- Envoie d'une requête de Résolution DNS de "zalando.com" renvoie de l'addresse
+  ip correspondante ARP => renvoie du MAC.
+- Renvoie de l'adresse MAC du routeur
+- Envoie de la requête finale 
+
+(addresse du routeur switch deja connu)
+Explication:
+- on donne une machine au switch branché sur le port 1
+- Le switch sait qu'il y a une addresse mac A sur le port 1 (il fait une table
+  1,A => une table ARP)
+- switch branché au routeur (switch fait une correspondance entre l'addresse MAc
+  du routeur 2, B)
+
+- Un msg est envoyé par la machine avec une gateway précisé.
+- Le switch l'envoie par tous les autres ports excepté le port expédiant
+- Le routeur (addresse du Gateway) renvoie son addresse mac à la machine 
+  expédiante
+- La machine connait l'addresse mac du routeur
+- La machine peut directement communique avec le routeur
+
+Switch = Commutateur = mettre en commun
+
+
